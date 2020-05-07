@@ -2,7 +2,7 @@ const handleAsJson = (resp) => resp.json();
 const map = (f) => (xs) => xs.map(f);
 const all = Promise.all.bind(Promise);
 let wikiUrl =
-  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=20000";
+  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=200";
 const getImageList = ({ title }) =>
   `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${title}`;
 
@@ -56,10 +56,10 @@ const createListItem = ({ title }) =>
 //     append(ul, li);
 //   });
 // })
-// .catch(function (error) {
-//   console.log(error);
-// });
 
 fetch(`https://cors-anywhere.herokuapp.com/${wikiUrl}`)
   .then(handleAsJson)
-  .then(map(createListItem));
+  .then(map(createListItem))
+  .catch(function (error) {
+    console.log(error);
+  });

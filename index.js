@@ -1,6 +1,7 @@
 const handleAsJson = (resp) => resp.json();
 const map = (f) => (xs) => xs.map(f);
 const all = Promise.all.bind(Promise);
+const baseUrl = "https://en.wikipedia.org/wiki/";
 let wikiUrl =
   "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=200";
 const getImageList = ({ title }) =>
@@ -25,14 +26,17 @@ const createListItem = ({ title }) =>
       console.log(title, data.query.pages);
       let li = createNode("li"),
         span = createNode("span");
-      span.innerHTML = `<a href=https://en.wikipedia.org/wiki/${title}>${title}</a> `;
+      span.innerHTML = `<a href=${baseUrl}${title}>${title}</a> `;
       append(li, span);
       let img_key = Object.keys(data.query.pages)[0];
       let images = data["query"]["pages"][img_key]["images"];
       if (images) {
         Object.keys(images).forEach(function eachImg(img) {
           let newImg = createNode("img");
-          newImg.src = images[img]["title"].replace("File:", "");
+          let filename = images[img]["title"].replace(/ /g, "_");
+          console.log(filename);
+          let imgUrl = `${baseUrl}${title}#/media/${filename}`;
+          newImg.src = imgUrl;
           append(li, newImg);
         });
       } else {

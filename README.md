@@ -15,3 +15,4 @@ Some of these pages have been updated to include a logo but are still tagged as 
 - [How to fetch from an API without Access-Control-Allow-Origin Header](https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9)
 - [How to fetch and then display in list](https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data)
 - [How to chain promises](https://dev.to/bennypowers/promise-chains-are-kinda-awesome-273o)
+- [How to fetch and unpack images from wikipedia image search api](https://stackoverflow.com/a/20431917/9222529)

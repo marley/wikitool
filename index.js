@@ -18,44 +18,30 @@ const ul = document.getElementById("pages"); // Get the list where we will place
 
 const createListItem = ({ title }) =>
   fetch(
-    `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${title}`
+    `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json`
   )
     .then(handleAsJson)
     .then(function (data) {
-      console.log({ title, data });
+      console.log(title, data.query.pages);
       let li = createNode("li"),
-        img = createNode("img"),
         span = createNode("span");
-      span.innerHTML = `<a href=https://en.wikipedia.org/wiki/${title}>${title}</a>`;
-      img.src = data[0];
+      span.innerHTML = `<a href=https://en.wikipedia.org/wiki/${title}>${title}</a> `;
       append(li, span);
-      append(li, img);
+      let img_key = Object.keys(data.query.pages)[0];
+      let images = data["query"]["pages"][img_key]["images"];
+      if (images) {
+        Object.keys(images).forEach(function eachImg(img) {
+          let newImg = createNode("img");
+          newImg.src = images[img]["title"].replace("File:", "");
+          append(li, newImg);
+        });
+      } else {
+        err = createNode("span");
+        err.innerHTML = `<p style="margin-left: 40px">No images found.</p>`;
+        append(li, err);
+      }
       append(ul, li);
     });
-// let wikiUrl =
-//   "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=20000";
-
-// fetch(`https://cors-anywhere.herokuapp.com/${wikiUrl}`)
-// .then((response) => response.json())
-// .then(function (data) {
-//   let pages = data;
-//   return pages.map(function (page) {
-//     let li = createNode("li"),
-//       img = createNode("img"),
-//       span = createNode("span");
-//     img.innerHTML = fetch(
-//       `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${page.title}`
-//     )
-//       .then((response) => response.json())
-//       .then(function (imgData) {
-//         imgData;
-//       });
-//     span.innerHTML = `<a href=https://en.wikipedia.org/wiki/${page.title}>${page.title}</a>`;
-//     append(li, span);
-//     append(li, img);
-//     append(ul, li);
-//   });
-// })
 
 fetch(`https://cors-anywhere.herokuapp.com/${wikiUrl}`)
   .then(handleAsJson)

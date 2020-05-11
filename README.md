@@ -17,6 +17,7 @@ Some of these pages have been updated to include a logo but are still tagged as 
 - [How to chain promises](https://dev.to/bennypowers/promise-chains-are-kinda-awesome-273o)
 - [How to fetch and unpack images from wikipedia image search api](https://stackoverflow.com/a/20431917/9222529)
 - [Encyrpting to MD5](https://stackoverflow.com/questions/1655769/fastest-md5-implementation-in-javascript)
+- [Lazy Loading](https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/)
 
 ## Next Steps
 

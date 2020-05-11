@@ -1,6 +1,6 @@
 # Logo Requested Wikipedia Pages
 
-This page retrieves wikipedia pages currently tagged as needing logos, and displays all images on the page.
+[This page](https://marley.github.io/wikitool/) retrieves wikipedia pages currently tagged as needing logos, and displays all images on the page.
 
 # Why?
 
@@ -21,7 +21,7 @@ Some of these pages have been updated to include a logo but are still tagged as 
 
 ## Next Steps
 
-- [ ] Host on server (github pages?)
-- [ ] Lazy load images
+- [x] Host on server
+- [x] Lazy load images
 - [ ] Allow user to input how many articles to show
 - [ ] Filter out standard wikipedia logos found on all pages

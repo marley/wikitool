@@ -1,10 +1,8 @@
 # Logo Requested Wikipedia Pages
 
-[This page](https://marley.github.io/wikitool/) retrieves wikipedia pages currently tagged as needing logos, and displays all images on the page.
+**What:**  [This page](https://marley.github.io/wikitool/) lists wikipedia pages currently tagged as needing logos, displaying thumbnails of all images on that page.
 
-# Why?
-
-Some of these pages have been updated to include a logo but are still tagged as needing logos.
+**Why?:**  Some of these pages have been updated to include a logo but are still tagged as needing logos.  This tool will allow a wikipedia user to quickly see which pages still need logos and which can be marked as resolved.
 
 # To Run
 

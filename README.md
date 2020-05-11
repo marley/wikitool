@@ -16,3 +16,9 @@ Some of these pages have been updated to include a logo but are still tagged as 
 - [How to fetch and then display in list](https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data)
 - [How to chain promises](https://dev.to/bennypowers/promise-chains-are-kinda-awesome-273o)
 - [How to fetch and unpack images from wikipedia image search api](https://stackoverflow.com/a/20431917/9222529)
+
+## Next Steps
+
+- Host on server (github pages?)
+- Allow user to input how many articles to show
+- Filter out standard wikipedia logos found on all pages

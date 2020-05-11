@@ -6,7 +6,7 @@ This page retrieves wikipedia pages currently tagged as needing logos, and displ
 
 Some of these pages have been updated to include a logo but are still tagged as needing logos.
 
-## To Run
+# To Run
 
 1.  Open `index.html`
 

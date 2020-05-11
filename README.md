@@ -21,7 +21,7 @@ Some of these pages have been updated to include a logo but are still tagged as 
 
 ## Next Steps
 
-[] Host on server (github pages?)
-[] Lazy load images
-[] Allow user to input how many articles to show
-[] Filter out standard wikipedia logos found on all pages
+- [ ] Host on server (github pages?)
+- [ ] Lazy load images
+- [ ] Allow user to input how many articles to show
+- [ ] Filter out standard wikipedia logos found on all pages

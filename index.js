@@ -17,6 +17,28 @@ function append(parent, el) {
 
 const ul = document.getElementById("pages"); // Get the list where we will place our pages
 
+function getImageUrl(filename) {
+  // finds the url of one image
+  console.log("FINDING URL");
+  let urlHash = CryptoJS.MD5(filename).toString();
+  console.log("MD5:  ", urlHash);
+  return `https://upload.wikimedia.org/wikipedia/commons/${
+    urlHash[0]
+  }/${urlHash.slice(0, 2)}/${filename}`;
+}
+
+// const getPageData = ({ title }) =>
+//   fetch(
+//     `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json`
+//   )
+//     .then(handleAsJson)
+//     .then((data) => data); // returns data for each page (which may have multiple images)
+
+// function getImagesObject({ data }) {
+//   let img_key = Object.keys(data.query.pages)[0];
+//   return Object.keys(data.query.pages[img_key]["images"]);
+// }
+
 const createListItem = ({ title }) =>
   fetch(
     `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json`
@@ -33,10 +55,13 @@ const createListItem = ({ title }) =>
       if (images) {
         Object.keys(images).forEach(function eachImg(img) {
           let newImg = createNode("img");
-          let filename = images[img]["title"].replace(/ /g, "_");
+          let filename = images[img]["title"]
+            .replace("File:", "")
+            .replace(/ /g, "_");
           console.log(filename);
-          let imgUrl = `${baseUrl}${title}#/media/${filename}`;
+          let imgUrl = getImageUrl(filename);
           newImg.src = imgUrl;
+          newImg.height, (newImg.width = 42);
           append(li, newImg);
         });
       } else {
@@ -47,7 +72,7 @@ const createListItem = ({ title }) =>
       append(ul, li);
     });
 
-fetch(`https://cors-anywhere.herokuapp.com/${wikiUrl}`)
+fetch(`https://cors-anywhere.herokuapp.com/${wikiUrl}`) // getting list of logos requested pages
   .then(handleAsJson)
   .then(map(createListItem))
   .catch(function (error) {

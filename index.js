@@ -4,8 +4,6 @@ const all = Promise.all.bind(Promise);
 const baseUrl = "https://en.wikipedia.org/wiki/";
 let wikiUrl =
   "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=200";
-const getImageList = ({ title }) =>
-  `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${title}`;
 
 function createNode(element) {
   return document.createElement(element); // Create the type of element you pass in the parameters
@@ -18,7 +16,7 @@ function append(parent, el) {
 const ul = document.getElementById("pages"); // Get the list where we will place our pages
 
 function getImageUrl(filename) {
-  // finds the url of one image
+  // finds the wiki image url of filename
   let urlHash = CryptoJS.MD5(filename).toString();
   return `https://upload.wikimedia.org/wikipedia/commons/${
     urlHash[0]

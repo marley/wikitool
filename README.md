@@ -21,6 +21,6 @@
 
 - [x] Host on server
 - [x] Lazy load images
-- [ ] Allow user to input how many articles to show
 - [ ] Allow user to specify other categories
 - [ ] Filter out standard wikipedia logos found on all pages
+- [ ] Allow user to input how many articles to show

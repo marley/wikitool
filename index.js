@@ -3,7 +3,7 @@ const map = (f) => (xs) => xs.map(f);
 const all = Promise.all.bind(Promise);
 const baseUrl = "https://en.wikipedia.org/wiki/";
 let wikiUrl =
-  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=200";
+  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=50";
 
 function createNode(element) {
   return document.createElement(element); // Create the type of element you pass in the parameters

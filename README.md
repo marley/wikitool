@@ -17,6 +17,8 @@
 - [Encyrpting to MD5](https://stackoverflow.com/questions/1655769/fastest-md5-implementation-in-javascript)
 - [Lazy Loading](https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/)
 - [Fixing Access-Control-Allow-Origin Header for Wikipedia Api](https://stackoverflow.com/a/38816679/9222529)
+- [Infinite Scroll API](https://infinite-scroll.com/)
+- [Helpful Infinite Scroll Example](https://codepen.io/desandro/pen/JJNNqP?editors=1010)
 
 ## Next Steps
 

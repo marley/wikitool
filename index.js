@@ -3,7 +3,7 @@ const map = (f) => (xs) => xs.map(f);
 const all = Promise.all.bind(Promise);
 const baseUrl = "https://en.wikipedia.org/wiki/";
 let wikiUrl =
-  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=10";
+  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=100";
 
 function createNode(element) {
   return document.createElement(element); // Create the type of element you pass in the parameters
@@ -14,14 +14,6 @@ function append(parent, el) {
 }
 
 const ul = document.getElementById("pages"); // Get the list where we will place our pages
-
-function getImageUrl(filename) {
-  // finds the wiki image url of filename
-  let urlHash = CryptoJS.MD5(filename).toString();
-  return `https://upload.wikimedia.org/wikipedia/commons/${
-    urlHash[0]
-  }/${urlHash.slice(0, 2)}/${filename}`;
-}
 
 const createListItem = ({ title }) =>
   fetch(
@@ -57,14 +49,34 @@ const createListItem = ({ title }) =>
       append(ul, li);
     });
 
-fetch(`https://cors-anywhere.herokuapp.com/${wikiUrl}`) // getting list of logos requested pages
-  .then(handleAsJson)
-  .then(map(createListItem))
-  .catch(function (error) {
-    console.log(error);
-  });
+function getImageUrl(filename) {
+  // finds the wiki image url of filename
+  let urlHash = CryptoJS.MD5(filename).toString();
+  return `https://upload.wikimedia.org/wikipedia/commons/${
+    urlHash[0]
+  }/${urlHash.slice(0, 2)}/${filename}`;
+}
 
-// function myFunction() {
-//   const searchTerm = document.getElementById("searchTerm");
-//   console.log(searchTerm);
-// }
+var elem = document.querySelector(".container");
+var infScroll = new InfiniteScroll(elem, {
+  // options
+  path: function () {
+    return `https://cors-anywhere.herokuapp.com/${wikiUrl}`;
+  },
+  // load response as flat text
+  responseType: "text",
+  status: ".scroll-status",
+  history: false,
+});
+
+infScroll.on("load", function (response) {
+  // parse response into JSON data
+  let data = JSON.parse(response);
+  console.log(data);
+  data.map(createListItem);
+  // var items = proxyElem.querySelectorAll(".photo-item");
+  // infScroll.appendItems(items);
+});
+
+// load initial page
+infScroll.loadNextPage();

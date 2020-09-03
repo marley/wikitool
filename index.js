@@ -1,7 +1,8 @@
-const handleAsJson = (resp) => resp.json();
-const map = (f) => (xs) => xs.map(f);
 const all = Promise.all.bind(Promise);
 const baseUrl = "https://en.wikipedia.org/wiki/";
+const handleAsJson = (resp) => resp.json();
+const map = (f) => (xs) => xs.map(f);
+const ul = document.getElementById("pages"); // Get the list where we will place our pages
 let wikiUrl =
   "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=100";
 
@@ -13,11 +14,17 @@ function append(parent, el) {
   return parent.appendChild(el); // Append the second parameter(element) to the first one
 }
 
-const ul = document.getElementById("pages"); // Get the list where we will place our pages
+function getImageUrl(filename) {
+  // finds the wiki image url of filename
+  let urlHash = CryptoJS.MD5(filename).toString();
+  return `https://upload.wikimedia.org/wikipedia/commons/${
+    urlHash[0]
+  }/${urlHash.slice(0, 2)}/${filename}`;
+}
 
 const createListItem = ({ title }) =>
   fetch(
-    `http://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json&origin=*`
+    `https://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json&origin=*`
   )
     .then(handleAsJson)
     .then(function (data) {
@@ -49,16 +56,8 @@ const createListItem = ({ title }) =>
       append(ul, li);
     });
 
-function getImageUrl(filename) {
-  // finds the wiki image url of filename
-  let urlHash = CryptoJS.MD5(filename).toString();
-  return `https://upload.wikimedia.org/wikipedia/commons/${
-    urlHash[0]
-  }/${urlHash.slice(0, 2)}/${filename}`;
-}
-
-var elem = document.querySelector(".container");
-var infScroll = new InfiniteScroll(elem, {
+let elem = document.querySelector(".container");
+let infScroll = new InfiniteScroll(elem, {
   // options
   path: function () {
     return `https://cors-anywhere.herokuapp.com/${wikiUrl}`;

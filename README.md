@@ -16,6 +16,7 @@
 - [How to fetch and unpack images from wikipedia image search api](https://stackoverflow.com/a/20431917/9222529)
 - [Encyrpting to MD5](https://stackoverflow.com/questions/1655769/fastest-md5-implementation-in-javascript)
 - [Lazy Loading](https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/)
+- [Fixing Access-Control-Allow-Origin Header for Wikipedia Api](https://stackoverflow.com/a/38816679/9222529)
 
 ## Next Steps
 

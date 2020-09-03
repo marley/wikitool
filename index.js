@@ -3,7 +3,7 @@ const map = (f) => (xs) => xs.map(f);
 const all = Promise.all.bind(Promise);
 const baseUrl = "https://en.wikipedia.org/wiki/";
 let wikiUrl =
-  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=50";
+  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=10";
 
 function createNode(element) {
   return document.createElement(element); // Create the type of element you pass in the parameters
@@ -25,7 +25,7 @@ function getImageUrl(filename) {
 
 const createListItem = ({ title }) =>
   fetch(
-    `https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json`
+    `http://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json&origin=*`
   )
     .then(handleAsJson)
     .then(function (data) {
@@ -63,3 +63,8 @@ fetch(`https://cors-anywhere.herokuapp.com/${wikiUrl}`) // getting list of logos
   .catch(function (error) {
     console.log(error);
   });
+
+// function myFunction() {
+//   const searchTerm = document.getElementById("searchTerm");
+//   console.log(searchTerm);
+// }

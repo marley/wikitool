@@ -29,10 +29,15 @@ const createListItem = ({ title }) =>
     .then(handleAsJson)
     .then(function (data) {
       console.log(title, data.query.pages);
-      let li = createNode("li"),
-        span = createNode("span");
-      span.innerHTML = `<a href=${baseUrl}${title}>${title}</a> `;
-      append(li, span);
+      let card = createNode("div"),
+        hr = createNode("hr");
+      card_title = createNode("p");
+      card_title.innerHTML = `<a href=${baseUrl}${title}>${title}</a> `;
+      card.setAttribute("class", "p-card");
+      hr.setAttribute("class", "u-sv1");
+      card_title.setAttribute("class", "p-card__content");
+      append(card, card_title);
+      append(card, hr);
       let img_key = Object.keys(data.query.pages)[0];
       let images = data["query"]["pages"][img_key]["images"];
       if (images) {
@@ -46,14 +51,14 @@ const createListItem = ({ title }) =>
           newImg.loading = "lazy";
           newImg.alt = `Image: ${filename} `;
           newImg.height, (newImg.width = 42);
-          append(li, newImg);
+          append(card, newImg);
         });
       } else {
-        err = createNode("span");
+        err = createNode("p");
         err.innerHTML = `<p style="margin-left: 40px">No images found.</p>`;
-        append(li, err);
+        append(card, err);
       }
-      append(ul, li);
+      append(ul, card);
     });
 
 let elem = document.querySelector(".container");

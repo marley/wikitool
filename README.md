@@ -19,6 +19,7 @@
 - [Fixing Access-Control-Allow-Origin Header for Wikipedia Api](https://stackoverflow.com/a/38816679/9222529)
 - [Infinite Scroll API](https://infinite-scroll.com/)
 - [Helpful Infinite Scroll Example](https://codepen.io/desandro/pen/JJNNqP?editors=1010)
+- [Vanilla Framework (styling)](https://vanillaframework.io/)
 
 ## Next Steps
 

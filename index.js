@@ -4,7 +4,7 @@ const handleAsJson = (resp) => resp.json();
 const map = (f) => (xs) => xs.map(f);
 const ul = document.getElementById("pages"); // Get the list where we will place our pages
 let wikiUrl =
-  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=100";
+  "https://tools.wmflabs.org/massviews/api.php?project=en.wikipedia.org&category=Wikipedia%20requested%20logos&limit=";
 
 function createNode(element) {
   return document.createElement(element); // Create the type of element you pass in the parameters
@@ -22,7 +22,7 @@ function getImageUrl(filename) {
   }/${urlHash.slice(0, 2)}/${filename}`;
 }
 
-const createListItem = ({ title }) =>
+const createListItem = (title) =>
   fetch(
     `https://en.wikipedia.org/w/api.php?action=query&titles=${title}&prop=images&format=json&origin=*`
   )
@@ -62,10 +62,14 @@ const createListItem = ({ title }) =>
     });
 
 let elem = document.querySelector(".container");
+// data-slicing indices
+let startIdx = 0;
+let endIdx = 100;
+
 let infScroll = new InfiniteScroll(elem, {
   // options
   path: function () {
-    return `https://cors-anywhere.herokuapp.com/${wikiUrl}`;
+    return `https://cors-anywhere.herokuapp.com/${wikiUrl}${endIdx}`;
   },
   // load response as flat text
   responseType: "text",
@@ -76,10 +80,17 @@ let infScroll = new InfiniteScroll(elem, {
 infScroll.on("load", function (response) {
   // parse response into JSON data
   let data = JSON.parse(response);
-  console.log(data);
-  data.map(createListItem);
-  // var items = proxyElem.querySelectorAll(".photo-item");
-  // infScroll.appendItems(items);
+  // array which will only include part of json data
+  let dataSliceArray = [];
+  let arrayIdx = 0;
+  // populate array with next slice of wikidata
+  for (let i = startIdx; i < endIdx; i += 1) {
+    dataSliceArray[arrayIdx] = data[i].title;
+    arrayIdx += 1;
+  } // TODO what happens when list ends?
+  dataSliceArray.map(createListItem);
+  startIdx = endIdx;
+  endIdx += 100;
 });
 
 // load initial page

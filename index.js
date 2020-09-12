@@ -32,7 +32,7 @@ const createListItem = (title) =>
       let card = createNode("div"),
         hr = createNode("hr");
       card_title = createNode("p");
-      card_title.innerHTML = `<a href=${baseUrl}${title}>${title}</a> `;
+      card_title.innerHTML = `<a href=${baseUrl}${title} target="_blank">${title}</a> `;
       card.setAttribute("class", "p-card");
       hr.setAttribute("class", "u-sv1");
       card_title.setAttribute("class", "p-card__content");

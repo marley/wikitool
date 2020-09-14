@@ -2,7 +2,10 @@
 
 **What:** [This page](https://marley.github.io/wikitool/) lists wikipedia pages currently tagged as needing logos and displays thumbnails of all images on that page.
 
-**Why:** This will be helpful for anyone in the Wikipedia editing community. As a completely distributed,volunteer-led effort, Wikipedia has many best practices, and protocols in place to keep content as relevant as possible. One of these is the 'Needs Logo' tag, which a user can add when they notice a page is missing the logo for the school, company, or other entity described. However this tag must be manually removed once someone uploads the logo. Some pages have been updated to include a logo but are still tagged as needing logos. _This tool will allow a Wikipedia user to quickly see which pages still need logos and which can be marked as resolved._
+**Why:** This will be helpful for anyone in the Wikipedia editing community. As a completely distributed,volunteer-led effort, Wikipedia has many best practices, and protocols in place to keep content as relevant as possible. One of these is the 'Needs Logo' tag, which a user can add when they notice a page is missing the logo for the school, company, or other entity described. However this tag must be manually removed once someone uploads the logo. Some pages have been updated to include a logo but are still tagged as needing logos. This tool will allow a Wikipedia user to quickly see which pages still need logos and which can be marked as resolved.
+
+![wiki_page_no_logo](https://github.com/marley/wikitool/blob/master/wiki_page_no_logo.png)
+Example of a wikipedia page missing the logo (in this case for a theater company)
 
 # To Run
 

@@ -94,7 +94,7 @@ let infScroll = new InfiniteScroll(elem, {
   responseType: "text",
   status: ".scroll-status",
   history: false,
-  checkLastPage: true,
+  checkLastPage: true, // TODO - Fix.  This will only kick in if path function returns null.  Need to figure out a case where that would happen.
 });
 
 infScroll.on("load", function (response) {
@@ -114,6 +114,7 @@ infScroll.on("load", function (response) {
   dataSliceArray.map(createListItem);
 
   if (endOfList) {
+    // TODO - Fix.  This is supposed to help with pagination, but it is not getting hit somehow
     // show end of list message
     console.log("End of list");
   } else {

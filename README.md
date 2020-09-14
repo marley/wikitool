@@ -5,7 +5,7 @@
 **Why:** This will be helpful for anyone in the Wikipedia editing community. As a completely distributed,volunteer-led effort, Wikipedia has many best practices, and protocols in place to keep content as relevant as possible. One of these is the 'Needs Logo' tag, which a user can add when they notice a page is missing the logo for the school, company, or other entity described. However this tag must be manually removed once someone uploads the logo. Some pages have been updated to include a logo but are still tagged as needing logos. This tool will allow a Wikipedia user to quickly see which pages still need logos and which can be marked as resolved.
 
 <img src="https://github.com/marley/wikitool/blob/master/wiki_page_no_logo.png" width="474" height="300">
-Example of a wikipedia page missing the logo (in this case for a theater company)
+*Example of a wikipedia page missing the logo (in this case for a theater company)*
 
 # To Run
 
@@ -34,3 +34,4 @@ Example of a wikipedia page missing the logo (in this case for a theater company
 - [ ] Allow user to specify other categories
 - [ ] Filter out standard wikipedia logos found on all pages
 - [ ] Allow user to input how many articles to show
+- [ ] Fix UI alignment

@@ -14,12 +14,31 @@ function append(parent, el) {
   return parent.appendChild(el); // Append the second parameter(element) to the first one
 }
 
+function imageUrlBad(image_url) {
+  var http = new XMLHttpRequest();
+
+  http.open("HEAD", image_url, false);
+  http.send();
+
+  return http.status === 404;
+}
+
 function getImageUrl(filename) {
-  // finds the wiki image url of filename
+  // finds the wiki image url based on filename
+  let loc = "commons";
   let urlHash = CryptoJS.MD5(filename).toString();
-  return `https://upload.wikimedia.org/wikipedia/commons/${
-    urlHash[0]
-  }/${urlHash.slice(0, 2)}/${filename}`;
+  let urlSuffix = `${urlHash[0]}/${urlHash.slice(0, 2)}/${filename}`;
+
+  // TODO - The following code takes a really long time to load and is not a
+  // universal solution.  Find a better way.
+  // // test if file exists at expected url
+  // if (
+  //   imageUrlBad(`https://upload.wikimedia.org/wikipedia/${loc}/${urlSuffix}`)
+  // ) {
+  //   loc = "en"; // try another common pattern
+  // }
+
+  return `https://upload.wikimedia.org/wikipedia/${loc}/${urlSuffix}`;
 }
 
 const createListItem = (title) =>
@@ -75,22 +94,32 @@ let infScroll = new InfiniteScroll(elem, {
   responseType: "text",
   status: ".scroll-status",
   history: false,
+  checkLastPage: true,
 });
 
 infScroll.on("load", function (response) {
   // parse response into JSON data
   let data = JSON.parse(response);
-  // array which will only include part of json data
-  let dataSliceArray = [];
+  let dataSliceArray = []; // array which will only include part of json data
   let arrayIdx = 0;
+  let endOfList = data.keys().length - startIdx < 101;
+  if (endOfList) {
+    endIdx = data.keys().length;
+  }
   // populate array with next slice of wikidata
   for (let i = startIdx; i < endIdx; i += 1) {
     dataSliceArray[arrayIdx] = data[i].title;
     arrayIdx += 1;
-  } // TODO what happens when list ends?
+  }
   dataSliceArray.map(createListItem);
-  startIdx = endIdx;
-  endIdx += 100;
+
+  if (endOfList) {
+    // show end of list message
+    console.log("End of list");
+  } else {
+    startIdx = endIdx;
+    endIdx += 100;
+  }
 });
 
 // load initial page

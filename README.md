@@ -1,8 +1,8 @@
 # Logo Requested Wikipedia Pages
 
-**What:** [This page](https://marley.github.io/wikitool/) lists wikipedia pages currently tagged as needing logos, displaying thumbnails of all images on that page.
+**What:** [This page](https://marley.github.io/wikitool/) lists wikipedia pages currently tagged as needing logos and displays thumbnails of all images on that page.
 
-**Why:** Some of these pages have been updated to include a logo but are still tagged as needing logos. This tool will allow a wikipedia user to quickly see which pages still need logos and which can be marked as resolved.
+**Why:** This will be helpful for anyone in the Wikipedia editing community. As a completely distributed,volunteer-led effort, Wikipedia has many best practices, and protocols in place to keep content as relevant as possible. One of these is the 'Needs Logo' tag, which a user can add when they notice a page is missing the logo for the school, company, or other entity described. However this tag must be manually removed once someone uploads the logo. Some pages have been updated to include a logo but are still tagged as needing logos. _This tool will allow a Wikipedia user to quickly see which pages still need logos and which can be marked as resolved._
 
 # To Run
 
@@ -26,6 +26,8 @@
 - [x] Host on server
 - [x] Lazy load images
 - [x] Infinite scroll
+- [ ] Add UI for end-of-list
+- [ ] Debug certain images not rendering
 - [ ] Allow user to specify other categories
 - [ ] Filter out standard wikipedia logos found on all pages
 - [ ] Allow user to input how many articles to show

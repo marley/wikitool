@@ -84,18 +84,22 @@ let elem = document.querySelector(".container");
 // data-slicing indices
 let startIdx = 0;
 let endIdx = 100;
+let keepScrolling = true;
 
 let infScroll = new InfiniteScroll(elem, {
   // options
   path: function () {
-    return `https://cors-anywhere.herokuapp.com/${wikiUrl}${endIdx}`;
+    if (keepScrolling) {
+      return `https://cors-anywhere.herokuapp.com/${wikiUrl}${endIdx}`;
+    }
+    return null;
   },
   // load response as flat text
   responseType: "text",
   scrollThreshold: 500,
   status: ".page-load-status",
   history: false,
-  checkLastPage: true, // TODO - Fix.  This will only kick in if path function returns null.  Need to figure out a case where that would happen.
+  checkLastPage: true,
 });
 
 infScroll.on("load", function (response) {
@@ -103,9 +107,10 @@ infScroll.on("load", function (response) {
   let data = JSON.parse(response);
   let dataSliceArray = []; // array which will only include part of json data
   let arrayIdx = 0;
-  let endOfList = data.keys().length - startIdx < 101;
+  let endOfList = Object.keys(data).length - startIdx < 100;
   if (endOfList) {
-    endIdx = data.keys().length;
+    endIdx = Object.keys(data).length;
+    keepScrolling = false;
   }
   // populate array with next slice of wikidata
   for (let i = startIdx; i < endIdx; i += 1) {
@@ -113,15 +118,8 @@ infScroll.on("load", function (response) {
     arrayIdx += 1;
   }
   dataSliceArray.map(createListItem);
-
-  if (endOfList) {
-    // TODO - Fix.  This is supposed to help with pagination, but it is not getting hit somehow
-    // show end of list message
-    console.log("End of list");
-  } else {
-    startIdx = endIdx;
-    endIdx += 100;
-  }
+  startIdx = endIdx;
+  endIdx += 100;
 });
 
 // load initial page

@@ -92,7 +92,8 @@ let infScroll = new InfiniteScroll(elem, {
   },
   // load response as flat text
   responseType: "text",
-  status: ".scroll-status",
+  scrollThreshold: 500,
+  status: ".page-load-status",
   history: false,
   checkLastPage: true, // TODO - Fix.  This will only kick in if path function returns null.  Need to figure out a case where that would happen.
 });

@@ -48,15 +48,12 @@ const createListItem = (title) =>
     .then(handleAsJson)
     .then(function (data) {
       console.log(title, data.query.pages);
-      let card = createNode("div"),
-        hr = createNode("hr");
+      let card = createNode("div");
       card_title = createNode("p");
       card_title.innerHTML = `<a href=${baseUrl}${title} target="_blank">${title}</a> `;
-      card.setAttribute("class", "p-card");
-      hr.setAttribute("class", "u-sv1");
-      card_title.setAttribute("class", "p-card__content");
+      card.setAttribute("class", "card");
+      card_title.setAttribute("class", "card__content");
       append(card, card_title);
-      append(card, hr);
       let img_key = Object.keys(data.query.pages)[0];
       let images = data["query"]["pages"][img_key]["images"];
       if (images) {

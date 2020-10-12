@@ -23,6 +23,10 @@
 - [Infinite Scroll API](https://infinite-scroll.com/)
 - [Helpful Infinite Scroll Example](https://codepen.io/desandro/pen/JJNNqP?editors=1010)
 - [Vanilla Framework (styling)](https://vanillaframework.io/)
+- [CSS Selectors](https://www.tutorialrepublic.com/css-tutorial/css-selectors.php)
+- [Styling Links](https://www.w3schools.com/css/css_link.asp)
+- [Color Palettes](https://www.w3schools.com/colors/colors_palettes.asp)
+- [Styling Cards](https://www.w3schools.com/howto/howto_css_cards.asp)
 
 ## Next Steps
 

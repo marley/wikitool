@@ -28,6 +28,7 @@
 - [Color palettes](https://www.w3schools.com/colors/colors_palettes.asp)
 - [Styling cards](https://www.w3schools.com/howto/howto_css_cards.asp)
 - [Undoing default browser styling](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Consistent_list_indentation)
+- [Wikipedia-tool styling inspiration](https://pageviews.toolforge.org/?project=en.wikipedia.org&platform=all-access&agent=user&redirects=0&range=latest-20&pages=Cat|Dog)
 
 ## Next Steps
 
@@ -37,6 +38,10 @@
 - [x] Add handling for end-of-list
 - [ ] Debug certain images not rendering
 - [ ] Allow user to specify other categories
-- [ ] Filter out standard wikipedia logos found on all pages
+  - [ ] Lookup example of search bar
+  - [ ] Rewrite search function to be generic for any category inputted
+  - [ ] Add empty page styling for catgories with no articles
+  - [ ] Re-design page to reflect new purpose as generic category search
 - [ ] Allow user to input how many articles to show
 - [x] Fix UI alignment
+- [ ] Add scroll-to-top popup

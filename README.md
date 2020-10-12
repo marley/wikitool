@@ -18,15 +18,16 @@
 - [How to chain promises](https://dev.to/bennypowers/promise-chains-are-kinda-awesome-273o)
 - [How to fetch and unpack images from wikipedia image search api](https://stackoverflow.com/a/20431917/9222529)
 - [Encyrpting to MD5](https://stackoverflow.com/questions/1655769/fastest-md5-implementation-in-javascript)
-- [Lazy Loading](https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/)
-- [Fixing Access-Control-Allow-Origin Header for Wikipedia Api](https://stackoverflow.com/a/38816679/9222529)
-- [Infinite Scroll API](https://infinite-scroll.com/)
-- [Helpful Infinite Scroll Example](https://codepen.io/desandro/pen/JJNNqP?editors=1010)
-- [Vanilla Framework (styling)](https://vanillaframework.io/)
-- [CSS Selectors](https://www.tutorialrepublic.com/css-tutorial/css-selectors.php)
-- [Styling Links](https://www.w3schools.com/css/css_link.asp)
-- [Color Palettes](https://www.w3schools.com/colors/colors_palettes.asp)
-- [Styling Cards](https://www.w3schools.com/howto/howto_css_cards.asp)
+- [Lazy loading](https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/)
+- [Fixing access-control-allow-origin header for wikipedia api](https://stackoverflow.com/a/38816679/9222529)
+- [Infinite scroll API](https://infinite-scroll.com/)
+- [Helpful infinite scroll example](https://codepen.io/desandro/pen/JJNNqP?editors=1010)
+- [Vanilla framework (styling)](https://vanillaframework.io/)
+- [CSS selectors](https://www.tutorialrepublic.com/css-tutorial/css-selectors.php)
+- [Styling links](https://www.w3schools.com/css/css_link.asp)
+- [Color palettes](https://www.w3schools.com/colors/colors_palettes.asp)
+- [Styling cards](https://www.w3schools.com/howto/howto_css_cards.asp)
+- [Undoing default browser styling](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Consistent_list_indentation)
 
 ## Next Steps
 
@@ -38,4 +39,4 @@
 - [ ] Allow user to specify other categories
 - [ ] Filter out standard wikipedia logos found on all pages
 - [ ] Allow user to input how many articles to show
-- [ ] Fix UI alignment
+- [x] Fix UI alignment
